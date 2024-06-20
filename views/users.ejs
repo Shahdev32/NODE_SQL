@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <a href="/user/new"><button>Add New User</button></a>
+    <h2>List of all users</h2>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Actions</th>
+        </tr>
+        <% data.forEach(user => { %>
+        <tr>
+            <td><%= user.id %></td>
+            <td><%= user.email %></td>
+            <td><%= user.username %></td>
+            <td>
+                <a href="/user/<%= user.id %>/edit"><button>Edit Username</button></a>
+                <a href="/user/<%= user.id %>/delete"><button>Delete</button></a>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>
